@@ -151,7 +151,7 @@ while True:
     mac = address.get(ip, "Not Found")
     c.send(mac.encode())
 ```
-## ARP_CLient.py
+## ARP_Client.py
 
 ```
 import socket
