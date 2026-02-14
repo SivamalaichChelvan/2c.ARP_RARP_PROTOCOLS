@@ -144,6 +144,7 @@ address = {
     "148.129.123.45": "5D:BC:E3:FA",
     "109.178.123.45": "8A:2B:3C:4D",
 }
+
 while True:
     ip = c.recv(1024).decode()
     print(f"Received IP: {ip}")
@@ -157,6 +158,7 @@ import socket
 
 s = socket.socket()
 s.connect(('localhost', 8000))
+
 while True:
     ip = input("Enter Logical Address (IP): ")
     s.send(ip.encode())
@@ -164,6 +166,7 @@ while True:
 ```
 ## OUPUT - ARP
 <img width="1008" height="500" alt="image" src="https://github.com/user-attachments/assets/da869701-ea4f-47d1-afdb-b48aba97401e" />
+
 ## PROGRAM - RARP
 
 ## RARP_Server.py
@@ -180,24 +183,26 @@ address = {
     "5D:BC:E3:FA" : "148.129.123.45",
     "8A:2B:3C:4D" : "109.178.123.45",
 }
+
 while True:
     mac = c.recv(1024).decode()
     print(f"Received MAC: {mac}")
     ip = address.get(mac, "Not Found")
     c.send(ip.encode())
 ```
-## RARP_CLient.py
+## RARP_Client.py
 ```
 import socket
 
 s = socket.socket()
 s.connect(('localhost', 8001))
+
 while True:
     mac = input("Enter Physical Address (MAC): ")
     s.send(mac.encode())
     print("IP Address:", s.recv(1024).decode())
 ```
-## OUPUT -RARP
+## OUPUT - RARP
 
 <img width="1010" height="461" alt="image" src="https://github.com/user-attachments/assets/76b972a1-24a1-421c-ae33-3511011855a0" />
 ## RESULT
